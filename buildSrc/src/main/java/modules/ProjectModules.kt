@@ -8,7 +8,9 @@ object ProjectModules {
         const val Bloc = ":bloc"
     }
 
-    object Feature
+    object Feature {
+        const val Counter = ":counter"
+    }
 
     object Shared
 

@@ -102,7 +102,7 @@ abstract class Bloc<Event, State>(
         eventScope.launch {
             for (event in eventChannel) {
                 try {
-                    flow {
+                    flow<State> {
                         mapEventToState(event)
                     }.collect {
                         handleEventAndState(event, it)

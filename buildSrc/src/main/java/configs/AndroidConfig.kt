@@ -1,5 +1,6 @@
 package configs
 
+import modules.ProjectModules
 import org.gradle.api.JavaVersion
 
 object AndroidConfig {
@@ -20,7 +21,9 @@ object AndroidConfig {
 
     val resConfigs = arrayOf("pt-rBR")
 
-    val dynamicFeatures = mutableSetOf<String>()
+    val dynamicFeatures = mutableSetOf(
+        ProjectModules.Feature.Counter
+    )
 
     // Used in .gradle files.
     // See android-module.gradle and android-dynamic-feature-module.gradle

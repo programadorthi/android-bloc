@@ -1,1 +1,3 @@
-include(":app")
+import modules.ProjectModules
+
+include(ProjectModules.App)

@@ -1,35 +1,116 @@
+import configs.*
+import dependencies.InstrumentationTestsDependencies.Companion.instrumentationTest
+import dependencies.Libraries
+import dependencies.UnitTestDependencies.Companion.unitTest
+
 plugins {
-    id("com.android.application")
-    id("kotlin-android")
-    id("kotlin-android-extensions")
+    id(PluginIds.androidApplication)
+    id(PluginIds.kotlinAndroid)
+    id(PluginIds.kotlinAndroidExtensions)
 }
 
+base.archivesBaseName = "android-bloc-${Versioning.version.name}"
+
 android {
-    compileSdkVersion(29)
-    buildToolsVersion("29.0.2")
+
+    compileSdkVersion(AndroidConfig.compileSdkVersion)
+    buildToolsVersion(AndroidConfig.buildToolsVersion)
+
     defaultConfig {
-        applicationId = "br.com.programadorthi.androidbloc"
-        minSdkVersion(19)
-        targetSdkVersion(29)
-        versionCode = 1
-        versionName = "1.0"
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        minSdkVersion(AndroidConfig.minSdkVersion)
+        targetSdkVersion(AndroidConfig.targetSdkVersion)
+
+        applicationId = AndroidConfig.applicationId
+        dynamicFeatures = AndroidConfig.dynamicFeatures
+        testInstrumentationRunner = AndroidConfig.instrumentationTestRunner
+        versionCode = Versioning.version.code
+        versionName = Versioning.version.name
+
+        vectorDrawables.apply {
+            useSupportLibrary = true
+            generatedDensities(*(AndroidConfig.generatedDensities))
+        }
+
+        resConfigs(*(AndroidConfig.resConfigs))
     }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-            proguardFiles(*(arrayOf("proguard-rules.pro")))
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
+
+    signingConfigs {
+        create("release") {
+            storeFile = SigningConfig.storeFile(rootProject)
+            storePassword = SigningConfig.storePassword
+            keyAlias = SigningConfig.keyAlias
+            keyPassword = SigningConfig.keyPassword
         }
     }
+
+    buildTypes {
+
+        getByName("debug") {
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-DEBUG"
+            isTestCoverageEnabled = true
+
+            manifestPlaceholders = manifestPlaceholders + FlavorConfig.Manifest.development
+
+            // https://stackoverflow.com/a/55745719
+            (this as ExtensionAware).extra["alwaysUpdateBuildId"] = false
+        }
+
+        getByName("release") {
+            isMinifyEnabled = true
+
+            manifestPlaceholders = manifestPlaceholders + FlavorConfig.Manifest.production
+
+            val proguardConfig = ProguardConfig("$rootDir/proguard")
+            proguardFiles(*(proguardConfig.customRules))
+            proguardFiles(getDefaultProguardFile(ProguardConfig.androidOptimizeProguard))
+
+            signingConfig = signingConfigs.findByName("release")
+        }
+
+    }
+
+    flavorDimensions(*(arrayOf(FlavorConfig.defaultDimensionName)))
+
+    productFlavors {
+
+        create(FlavorConfig.Flavor.development) {
+            dimension = FlavorConfig.defaultDimensionName
+
+            buildConfigField("String", "JSONPLACEHOLDER_URL", FlavorConfig.Endpoint.jsonplaceholder)
+            buildConfigField("String", "METAWEATHER_URL", FlavorConfig.Endpoint.metaweather)
+        }
+
+        create(FlavorConfig.Flavor.production) {
+            dimension = FlavorConfig.defaultDimensionName
+
+            buildConfigField("String", "JSONPLACEHOLDER_URL", FlavorConfig.Endpoint.jsonplaceholder)
+            buildConfigField("String", "METAWEATHER_URL", FlavorConfig.Endpoint.metaweather)
+        }
+
+    }
+
+    compileOptions {
+        sourceCompatibility = AndroidConfig.compileOptionsCompatibility
+        targetCompatibility = AndroidConfig.compileOptionsCompatibility
+    }
+
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.50")
-    implementation("androidx.appcompat:appcompat:1.1.0")
-    implementation("androidx.core:core-ktx:1.1.0")
-    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
-    testImplementation("junit:junit:4.12")
-    androidTestImplementation("androidx.test:runner:1.2.0")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
+    implementation(Libraries.kotlinStdlib)
+
+    implementation(Libraries.appCompatX)
+    implementation(Libraries.coreAndroidX)
+    implementation(Libraries.constraintLayoutX)
+
+    implementation(Libraries.logger)
+
+    unitTest {
+        forEachDependency { testImplementation(it) }
+    }
+
+    instrumentationTest {
+        forEachDependency { androidTestImplementation(it) }
+    }
 }

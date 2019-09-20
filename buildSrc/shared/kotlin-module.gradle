@@ -1,0 +1,18 @@
+apply plugin: PluginIds.testLogger
+apply plugin: PluginIds.ktlint
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = configs.KotlinConfig.targetJVM
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = configs.KotlinConfig.targetJVM
+}
+
+testlogger {
+    theme System.getProperty("os.name").toLowerCase().contains('windows') ? 'standard' : 'mocha'
+}

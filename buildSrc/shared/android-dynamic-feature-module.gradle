@@ -1,0 +1,99 @@
+apply plugin: PluginIds.kotlinAndroid
+apply plugin: PluginIds.kotlinAndroidExtensions
+apply plugin: PluginIds.testLogger
+apply plugin: PluginIds.ktlint
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+android {
+
+    compileSdkVersion configs.AndroidConfig.compileSdkVersion
+    buildToolsVersion configs.AndroidConfig.buildToolsVersion
+
+    def currentVersion = Versioning.version
+
+    defaultConfig {
+
+        minSdkVersion configs.AndroidConfig.minSdkVersion
+        targetSdkVersion configs.AndroidConfig.targetSdkVersion
+
+        versionCode currentVersion.code
+        versionName currentVersion.name
+
+        testInstrumentationRunner configs.AndroidConfig.instrumentationTestRunner
+
+        vectorDrawables.useSupportLibrary = true
+        vectorDrawables.generatedDensities = configs.AndroidConfig.generatedDensitiesGroovy
+    }
+
+    buildTypes {
+
+        debug {
+            minifyEnabled false
+            testCoverageEnabled true
+        }
+
+        release {
+            proguardFiles file("$rootDir/proguard").listFiles().toList().toArray()
+            proguardFiles configs.ProguardConfig.androidDynamicFeatureProguard
+        }
+    }
+
+    flavorDimensions configs.FlavorConfig.defaultDimensionName
+
+    productFlavors {
+
+        create(configs.FlavorConfig.Flavor.development) {
+            dimension = configs.FlavorConfig.defaultDimensionName
+        }
+
+        create(configs.FlavorConfig.Flavor.production) {
+            dimension = configs.FlavorConfig.defaultDimensionName
+        }
+
+    }
+
+    compileOptions {
+        sourceCompatibility configs.AndroidConfig.compileOptionsCompatibility
+        targetCompatibility configs.AndroidConfig.compileOptionsCompatibility
+    }
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/main.kotlin_module'
+    }
+
+    lintOptions {
+        quiet true
+        abortOnError false
+        ignoreWarnings true
+        disable 'InvalidPackage'
+        disable 'OldTargetApi'
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+            returnDefaultValues = true
+        }
+    }
+
+    kotlinOptions{
+        jvmTarget = configs.KotlinConfig.targetJVM
+    }
+}
+
+androidExtensions {
+    experimental = true
+}
+
+testlogger {
+    theme System.getProperty("os.name").toLowerCase().contains('windows') ? 'standard' : 'mocha'
+}

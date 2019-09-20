@@ -30,8 +30,11 @@ abstract class Bloc<Event, State>(
     }
 
     override fun onCleared() {
-        eventScope.cancel()
-        super.onCleared()
+        try {
+            eventScope.cancel()
+        } finally {
+            super.onCleared()
+        }
     }
 
     override fun dispatch(event: Event) {

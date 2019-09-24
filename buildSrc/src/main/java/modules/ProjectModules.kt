@@ -12,6 +12,7 @@ object ProjectModules {
         const val Counter = ":counter"
         const val InfiniteList = ":infinitelist"
         const val Login = ":login"
+        const val Timer = ":timer"
     }
 
 }

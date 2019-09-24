@@ -7,9 +7,11 @@ import br.com.programadorthi.androidbloc.R
 import br.com.programadorthi.counter.presentation.CounterActivity
 import br.com.programadorthi.infinitelist.presentation.PostListActivity
 import br.com.programadorthi.login.presentation.SplashActivity
+import br.com.programadorthi.timer.presentation.TimerActivity
 import kotlinx.android.synthetic.main.activity_main.startCounterActivity
 import kotlinx.android.synthetic.main.activity_main.startLoginActivity
 import kotlinx.android.synthetic.main.activity_main.startPostListActivity
+import kotlinx.android.synthetic.main.activity_main.startTimerActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,6 +29,10 @@ class MainActivity : AppCompatActivity() {
 
         startPostListActivity.setOnClickListener {
             startActivity(activity = PostListActivity::class.java)
+        }
+
+        startTimerActivity.setOnClickListener {
+            startActivity(activity = TimerActivity::class.java)
         }
     }
 

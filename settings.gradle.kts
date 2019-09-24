@@ -5,5 +5,6 @@ include(
     ProjectModules.Arch.Bloc,
     ProjectModules.Feature.Counter,
     ProjectModules.Feature.InfiniteList,
-    ProjectModules.Feature.Login
+    ProjectModules.Feature.Login,
+    ProjectModules.Feature.Timer
 )

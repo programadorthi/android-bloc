@@ -106,6 +106,7 @@ dependencies {
     implementation(project(ProjectModules.Feature.Counter))
     implementation(project(ProjectModules.Feature.InfiniteList))
     implementation(project(ProjectModules.Feature.Login))
+    implementation(project(ProjectModules.Feature.Timer))
 
     implementation(Libraries.kotlinStdlib)
     implementation(Libraries.coroutinesCore)

@@ -5,6 +5,7 @@ import configs.SigningConfig
 import dependencies.InstrumentationTestsDependencies.Companion.instrumentationTest
 import dependencies.Libraries
 import dependencies.UnitTestDependencies.Companion.unitTest
+import modules.ProjectModules
 
 plugins {
     id(PluginIds.androidApplication)
@@ -101,11 +102,16 @@ android {
 }
 
 dependencies {
+    implementation(project(ProjectModules.Arch.Bloc))
+    implementation(project(ProjectModules.Feature.Counter))
+
     implementation(Libraries.kotlinStdlib)
+    implementation(Libraries.coroutinesCore)
 
     implementation(Libraries.appCompatX)
     implementation(Libraries.coreAndroidX)
     implementation(Libraries.constraintLayoutX)
+    implementation(Libraries.preferenceX)
 
     implementation(Libraries.koin)
 

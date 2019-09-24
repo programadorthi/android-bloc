@@ -5,16 +5,15 @@ import modules.LibraryModule
 import modules.LibraryType
 import modules.ProjectModules
 
-val module = LibraryModule(rootDir, LibraryType.DynamicFeature)
+val module = LibraryModule(rootDir, LibraryType.Android)
 
 apply(from = module.script())
 
 plugins {
-    id(PluginIds.androidDynamicFeature)
+    id(PluginIds.androidLibrary)
 }
 
 dependencies {
-    implementation(project(ProjectModules.App))
     implementation(project(ProjectModules.Arch.Bloc))
 
     implementation(Libraries.kotlinStdlib)

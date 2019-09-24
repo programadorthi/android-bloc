@@ -12,7 +12,6 @@ object Libraries {
 
     // Kotlin coroutines
     const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
-    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
 
     // OKHttp and Retrofit
@@ -28,6 +27,7 @@ object Libraries {
     const val lifecycleRuntimeX = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
     const val lifecycleViewModelX = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
     const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
+    const val preferenceX = "androidx.preference:preference-ktx:${Versions.preferenceX}"
 
     // Material Design
     const val materialDesign = "com.google.android.material:material:${Versions.materialDesign}"
@@ -65,6 +65,7 @@ object Libraries {
         const val coreAndroidx = "1.1.0"
         const val constraintlayout = "1.1.3"
         const val lifecycle = "2.2.0-alpha04"
+        const val preferenceX = "1.1.0"
 
         const val materialDesign = "1.0.0"
 

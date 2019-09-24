@@ -4,8 +4,8 @@ object FlavorConfig {
     const val defaultDimensionName = "default"
 
     object Endpoint {
-        const val jsonplaceholder = "https://jsonplaceholder.typicode.com"
-        const val metaweather = "https://www.metaweather.com"
+        const val jsonplaceholder = "\"https://jsonplaceholder.typicode.com\""
+        const val metaweather = "\"https://www.metaweather.com\""
     }
 
     object Flavor {

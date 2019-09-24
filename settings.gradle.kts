@@ -7,5 +7,6 @@ include(
     ProjectModules.Feature.InfiniteList,
     ProjectModules.Feature.Login,
     ProjectModules.Feature.Timer,
-    ProjectModules.Feature.Weather
+    ProjectModules.Feature.Weather,
+    ProjectModules.Test.UnitTestHelpers
 )

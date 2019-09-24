@@ -30,6 +30,10 @@ dependencies {
 
     unitTest {
         forEachDependency { testImplementation(it) }
+
+        forEachProjectDependency(this@dependencies) {
+            testImplementation(it)
+        }
     }
 
     instrumentationTest {

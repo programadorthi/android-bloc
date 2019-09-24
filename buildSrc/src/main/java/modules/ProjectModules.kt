@@ -16,4 +16,8 @@ object ProjectModules {
         const val Weather = ":weather"
     }
 
+    object Test {
+        const val UnitTestHelpers = ":unit-test-helpers"
+    }
+
 }

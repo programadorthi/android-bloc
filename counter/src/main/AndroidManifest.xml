@@ -3,7 +3,7 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="br.com.programadorthi.counter">
 
-    <dist:module
+    <!--<dist:module
         dist:instant="false"
         dist:title="@string/title_counter">
         <dist:delivery>
@@ -11,7 +11,7 @@
         </dist:delivery>
 
         <dist:fusing dist:include="true" />
-    </dist:module>
+    </dist:module>-->
 
     <application>
         <activity android:name=".presentation.CounterActivity" />

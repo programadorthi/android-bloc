@@ -10,8 +10,7 @@ object ProjectModules {
 
     object Feature {
         const val Counter = ":counter"
+        const val Login = ":login"
     }
-
-    object Shared
 
 }

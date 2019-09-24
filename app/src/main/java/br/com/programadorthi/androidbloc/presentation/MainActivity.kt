@@ -8,10 +8,12 @@ import br.com.programadorthi.counter.presentation.CounterActivity
 import br.com.programadorthi.infinitelist.presentation.PostListActivity
 import br.com.programadorthi.login.presentation.SplashActivity
 import br.com.programadorthi.timer.presentation.TimerActivity
+import br.com.programadorthi.weather.presentation.WeatherActivity
 import kotlinx.android.synthetic.main.activity_main.startCounterActivity
 import kotlinx.android.synthetic.main.activity_main.startLoginActivity
 import kotlinx.android.synthetic.main.activity_main.startPostListActivity
 import kotlinx.android.synthetic.main.activity_main.startTimerActivity
+import kotlinx.android.synthetic.main.activity_main.startWeatherActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,6 +35,10 @@ class MainActivity : AppCompatActivity() {
 
         startTimerActivity.setOnClickListener {
             startActivity(activity = TimerActivity::class.java)
+        }
+
+        startWeatherActivity.setOnClickListener {
+            startActivity(activity = WeatherActivity::class.java)
         }
     }
 

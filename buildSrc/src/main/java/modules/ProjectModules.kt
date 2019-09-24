@@ -13,6 +13,7 @@ object ProjectModules {
         const val InfiniteList = ":infinitelist"
         const val Login = ":login"
         const val Timer = ":timer"
+        const val Weather = ":weather"
     }
 
 }

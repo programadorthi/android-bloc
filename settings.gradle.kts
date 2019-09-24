@@ -6,5 +6,6 @@ include(
     ProjectModules.Feature.Counter,
     ProjectModules.Feature.InfiniteList,
     ProjectModules.Feature.Login,
-    ProjectModules.Feature.Timer
+    ProjectModules.Feature.Timer,
+    ProjectModules.Feature.Weather
 )

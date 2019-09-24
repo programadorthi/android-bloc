@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.programadorthi.weather">
+
+    <application>
+        <activity android:name=".presentation.WeatherSettingsActivity"></activity>
+        <activity android:name=".presentation.WeatherActivity" />
+    </application>
+
+</manifest>

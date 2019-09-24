@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="pref_weather_fahrenheit">temperature_unit</string>
+</resources>

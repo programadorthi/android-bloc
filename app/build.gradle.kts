@@ -107,6 +107,7 @@ dependencies {
     implementation(project(ProjectModules.Feature.InfiniteList))
     implementation(project(ProjectModules.Feature.Login))
     implementation(project(ProjectModules.Feature.Timer))
+    implementation(project(ProjectModules.Feature.Weather))
 
     implementation(Libraries.kotlinStdlib)
     implementation(Libraries.coroutinesCore)

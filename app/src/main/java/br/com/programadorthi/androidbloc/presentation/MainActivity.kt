@@ -5,7 +5,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import br.com.programadorthi.androidbloc.R
 import br.com.programadorthi.counter.presentation.CounterActivity
+import br.com.programadorthi.login.presentation.SplashActivity
 import kotlinx.android.synthetic.main.activity_main.startCounterActivity
+import kotlinx.android.synthetic.main.activity_main.startLoginActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,6 +17,10 @@ class MainActivity : AppCompatActivity() {
 
         startCounterActivity.setOnClickListener {
             startActivity(activity = CounterActivity::class.java)
+        }
+
+        startLoginActivity.setOnClickListener {
+            startActivity(activity = SplashActivity::class.java)
         }
     }
 

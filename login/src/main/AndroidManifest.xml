@@ -1,2 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.com.programadorthi.login" />
+    package="br.com.programadorthi.login">
+
+    <application>
+        <activity android:name=".presentation.HomeActivity" />
+        <activity android:name=".presentation.LoginActivity" />
+        <activity android:name=".presentation.SplashActivity" />
+    </application>
+
+</manifest>

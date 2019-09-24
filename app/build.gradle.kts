@@ -104,6 +104,7 @@ android {
 dependencies {
     implementation(project(ProjectModules.Arch.Bloc))
     implementation(project(ProjectModules.Feature.Counter))
+    implementation(project(ProjectModules.Feature.Login))
 
     implementation(Libraries.kotlinStdlib)
     implementation(Libraries.coroutinesCore)

@@ -28,6 +28,7 @@ object Libraries {
     const val lifecycleViewModelX = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
     const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
     const val preferenceX = "androidx.preference:preference-ktx:${Versions.preferenceX}"
+    const val recyclerViewX = "androidx.recyclerview:recyclerview:${Versions.recyclerViewX}"
 
     // Material Design
     const val materialDesign = "com.google.android.material:material:${Versions.materialDesign}"
@@ -53,7 +54,7 @@ object Libraries {
     const val espressoContrib = "androidx.test.espresso:espresso-contrib:${Versions.espresso}"
 
     private object Versions {
-        const val kotlinSerialization = "0.13.0"
+        const val kotlinSerialization = "0.12.0"
 
         const val coroutines = "1.3.1"
 
@@ -66,6 +67,7 @@ object Libraries {
         const val constraintlayout = "1.1.3"
         const val lifecycle = "2.2.0-alpha04"
         const val preferenceX = "1.1.0"
+        const val recyclerViewX = "1.0.0"
 
         const val materialDesign = "1.0.0"
 

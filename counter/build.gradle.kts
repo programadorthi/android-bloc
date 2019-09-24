@@ -20,7 +20,14 @@ dependencies {
     implementation(Libraries.kotlinStdlib)
     implementation(Libraries.coroutinesCore)
 
-    implementation(Libraries.lifecycleViewModelX)
+    implementation(Libraries.appCompatX)
+    implementation(Libraries.constraintLayoutX)
+
+    implementation(Libraries.lifecycleRuntimeX)
+
+    implementation(Libraries.koin)
+
+    implementation(Libraries.logger)
 
     unitTest {
         forEachDependency { testImplementation(it) }

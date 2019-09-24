@@ -38,8 +38,9 @@ android {
 
         release {
             minifyEnabled true
+            consumerProguardFiles configs.ProguardConfig.consumerProguard
             proguardFiles file("$rootDir/proguard").listFiles().toList().toArray()
-            proguardFiles getDefaultProguardFile(configs.ProguardConfig.androidOptimizeProguard)
+            proguardFiles getDefaultProguardFile(configs.ProguardConfig.androidOptimizeProguard), configs.ProguardConfig.proguardFile
         }
     }
 

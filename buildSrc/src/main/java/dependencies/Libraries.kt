@@ -64,7 +64,7 @@ object Libraries {
         const val appCompat = "1.1.0"
         const val coreAndroidx = "1.1.0"
         const val constraintlayout = "1.1.3"
-        const val lifecycle = "2.1.0"
+        const val lifecycle = "2.2.0-alpha04"
 
         const val materialDesign = "1.0.0"
 

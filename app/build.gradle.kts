@@ -1,4 +1,7 @@
-import configs.*
+import configs.AndroidConfig
+import configs.FlavorConfig
+import configs.ProguardConfig
+import configs.SigningConfig
 import dependencies.InstrumentationTestsDependencies.Companion.instrumentationTest
 import dependencies.Libraries
 import dependencies.UnitTestDependencies.Companion.unitTest
@@ -103,6 +106,8 @@ dependencies {
     implementation(Libraries.appCompatX)
     implementation(Libraries.coreAndroidX)
     implementation(Libraries.constraintLayoutX)
+
+    implementation(Libraries.koin)
 
     implementation(Libraries.logger)
 

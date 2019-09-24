@@ -17,6 +17,7 @@ object ProjectModules {
     }
 
     object Test {
+        const val InstrumentationTestHelpers = ":instrumentation-test-helpers"
         const val UnitTestHelpers = ":unit-test-helpers"
     }
 

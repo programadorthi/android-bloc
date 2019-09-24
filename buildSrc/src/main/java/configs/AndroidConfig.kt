@@ -14,7 +14,7 @@ object AndroidConfig {
 
     const val buildToolsVersion = "29.0.2"
 
-    const val instrumentationTestRunner = "androidx.test.runner.AndroidJUnitRunner"
+    const val instrumentationTestRunner = "br.com.programadorthi.instrumentationtesthelpers.EspressoTestRunner"
 
     val generatedDensities = emptyArray<String>()
 

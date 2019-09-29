@@ -1,7 +1,7 @@
 package br.com.programadorthi.infinitelist.bloc
 
-import br.com.programadorthi.bloc.Bloc
-import br.com.programadorthi.infinitelist.data.PostService
+import br.com.programadorthi.androidbloc.AndroidBloc
+import br.com.programadorthi.infinitelist.PostService
 import com.orhanobut.logger.Logger
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.FlowCollector
 class PostBloc(
     private val eventScope: CoroutineScope,
     private val postService: PostService
-) : Bloc<PostEvent, PostState>(eventScope) {
+) : AndroidBloc<PostEvent, PostState>(eventScope) {
 
     private lateinit var debounce: Deferred<Boolean>
 
@@ -32,7 +32,7 @@ class PostBloc(
             debounce.cancel()
         }
         debounce = eventScope.async {
-            delay(500)
+            delay(DELAY)
             super.computeEvent(event)
         }
         return try {
@@ -93,5 +93,9 @@ class PostBloc(
         emit(PostState.PostLoading)
         val posts = postService.posts(start = event.start, limit = event.limit)
         emit(state.copy(posts = state.posts + posts, hasReachedMax = posts.isEmpty()))
+    }
+
+    private companion object {
+        private const val DELAY = 500L
     }
 }

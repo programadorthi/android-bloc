@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import br.com.programadorthi.bloc.Bloc
+import br.com.programadorthi.androidbloc.AndroidBloc
 import br.com.programadorthi.infinitelist.R
 import br.com.programadorthi.infinitelist.bloc.PostEvent
 import br.com.programadorthi.infinitelist.bloc.PostState
@@ -24,7 +24,7 @@ import org.koin.core.qualifier.named
 class PostListActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener,
     PostLoadMore {
 
-    private val postBloc: Bloc<PostEvent, PostState> by viewModel(named(POST_BLOC))
+    private val postBloc: AndroidBloc<PostEvent, PostState> by viewModel(named(POST_BLOC))
 
     private val adapter = PostAdapter()
 

@@ -1,4 +1,4 @@
-package br.com.programadorthi.infinitelist.data
+package br.com.programadorthi.infinitelist
 
 import kotlinx.serialization.Serializable
 

@@ -2,11 +2,10 @@ package br.com.programadorthi.infinitelist.presentation.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import br.com.programadorthi.infinitelist.data.Post
 
 class PostAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val posts = mutableListOf<Post>()
+    private val posts = mutableListOf<br.com.programadorthi.infinitelist.Post>()
 
     private var loadIndex = -1
 
@@ -45,7 +44,7 @@ class PostAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     fun loading(show: Boolean) {
         if (show && loadIndex < 0) {
-            posts.add(Post.LOADING)
+            posts.add(br.com.programadorthi.infinitelist.Post.LOADING)
             loadIndex = posts.lastIndex
             notifyItemInserted(loadIndex)
             return
@@ -53,7 +52,7 @@ class PostAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         if (!show && loadIndex >= 0) {
             val item = posts[loadIndex]
-            if (item == Post.LOADING) {
+            if (item == br.com.programadorthi.infinitelist.Post.LOADING) {
                 posts.removeAt(loadIndex)
                 notifyItemRemoved(loadIndex)
             }
@@ -61,7 +60,7 @@ class PostAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-    fun updateDataSet(posts: List<Post>) {
+    fun updateDataSet(posts: List<br.com.programadorthi.infinitelist.Post>) {
         with(this.posts) {
             val firstIndex = size
             val itemCount = posts.size - size

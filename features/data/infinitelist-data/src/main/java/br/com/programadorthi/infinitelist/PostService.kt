@@ -1,4 +1,4 @@
-package br.com.programadorthi.infinitelist.data
+package br.com.programadorthi.infinitelist
 
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -10,5 +10,4 @@ interface PostService {
         @Query("_start") start: Int,
         @Query("_limit") limit: Int
     ): List<Post>
-
 }

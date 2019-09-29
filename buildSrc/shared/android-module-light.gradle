@@ -1,5 +1,4 @@
 apply plugin: PluginIds.kotlinAndroid
-apply plugin: PluginIds.kotlinAndroidExtensions
 apply plugin: PluginIds.testLogger
 apply plugin: PluginIds.ktlint
 
@@ -22,11 +21,6 @@ android {
 
         versionCode currentVersion.code
         versionName currentVersion.name
-
-        testInstrumentationRunner configs.AndroidConfig.instrumentationTestRunner
-
-        vectorDrawables.useSupportLibrary = true
-        vectorDrawables.generatedDensities = configs.AndroidConfig.generatedDensitiesGroovy
     }
 
     buildTypes {
@@ -42,20 +36,6 @@ android {
             proguardFiles file("$rootDir/proguard").listFiles().toList().toArray()
             proguardFiles getDefaultProguardFile(configs.ProguardConfig.androidOptimizeProguard), configs.ProguardConfig.proguardFile
         }
-    }
-
-    flavorDimensions configs.FlavorConfig.defaultDimensionName
-
-    productFlavors {
-
-        create(configs.FlavorConfig.Flavor.development) {
-            dimension = configs.FlavorConfig.defaultDimensionName
-        }
-
-        create(configs.FlavorConfig.Flavor.production) {
-            dimension = configs.FlavorConfig.defaultDimensionName
-        }
-
     }
 
     compileOptions {
@@ -92,10 +72,6 @@ android {
     kotlinOptions{
         jvmTarget = configs.KotlinConfig.targetJVM
     }
-}
-
-androidExtensions {
-    experimental = true
 }
 
 testlogger {

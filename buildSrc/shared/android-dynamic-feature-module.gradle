@@ -61,6 +61,8 @@ android {
         targetCompatibility configs.AndroidConfig.compileOptionsCompatibility
     }
 
+    sourceSets["main"].java.srcDir("src/main/kotlin")
+
     packagingOptions {
         exclude 'LICENSE.txt'
         exclude 'META-INF/DEPENDENCIES'

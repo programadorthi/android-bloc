@@ -4,10 +4,8 @@ import br.com.programadorthi.BaseUnitTest
 import br.com.programadorthi.bloc.Bloc
 import br.com.programadorthi.counter.bloc.CounterBloc
 import br.com.programadorthi.counter.bloc.CounterEvent
-import kotlinx.coroutines.test.TestCoroutineScope
 import kotlinx.coroutines.test.runBlockingTest
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.After
 import org.junit.Before
 import org.junit.Test
 
@@ -32,7 +30,6 @@ class CounterBlocTest : BaseUnitTest() {
         counterBloc.dispatch(CounterEvent.Increment)
 
         assertThat(counterBloc.currentState).isEqualTo(expected)
-
     }
 
     @Test
@@ -42,7 +39,5 @@ class CounterBlocTest : BaseUnitTest() {
         counterBloc.dispatch(CounterEvent.Decrement)
 
         assertThat(counterBloc.currentState).isEqualTo(expected)
-
     }
-
 }

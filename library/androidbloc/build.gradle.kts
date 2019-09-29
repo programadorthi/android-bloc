@@ -4,7 +4,7 @@ import modules.LibraryModule
 import modules.LibraryType
 import modules.ProjectModules
 
-val module = LibraryModule(rootDir, LibraryType.Android)
+val module = LibraryModule(rootDir, LibraryType.AndroidLight)
 
 apply(from = module.script())
 

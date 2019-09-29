@@ -10,7 +10,7 @@ object ProjectModules {
     }
 
     object Feature {
-        const val Counter = ":counter"
+        const val Counter = ":features:ui:counter"
         const val InfiniteList = ":infinitelist"
         const val Login = ":login"
         const val Timer = ":timer"

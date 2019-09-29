@@ -1,12 +1,12 @@
 package br.com.programadorthi.counter.bloc
 
-import br.com.programadorthi.bloc.Bloc
+import br.com.programadorthi.androidbloc.AndroidBloc
 import br.com.programadorthi.bloc.Transition
 import com.orhanobut.logger.Logger
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.FlowCollector
 
-class CounterBloc(eventScope: CoroutineScope) : Bloc<CounterEvent, Int>(eventScope) {
+class CounterBloc(eventScope: CoroutineScope) : AndroidBloc<CounterEvent, Int>(eventScope) {
 
     override val initialState: Int = 0
 
@@ -32,5 +32,4 @@ class CounterBloc(eventScope: CoroutineScope) : Bloc<CounterEvent, Int>(eventSco
         super.onTransition(transition)
         Logger.d(">>>>> onTransition local: $transition")
     }
-
 }

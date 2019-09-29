@@ -36,6 +36,5 @@ class CounterActivity : AppCompatActivity() {
         incrementButton.setOnClickListener {
             counterBloc.dispatch(CounterEvent.Increment)
         }
-
     }
 }

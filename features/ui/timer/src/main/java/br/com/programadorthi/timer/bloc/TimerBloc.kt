@@ -1,7 +1,6 @@
 package br.com.programadorthi.timer.bloc
 
-import br.com.programadorthi.bloc.Bloc
-import com.orhanobut.logger.Logger
+import br.com.programadorthi.androidbloc.AndroidBloc
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.channels.ticker
@@ -10,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class TimerBloc(
     private val eventScope: CoroutineScope
-) : Bloc<TimerEvent, TimerState>(eventScope) {
+) : AndroidBloc<TimerEvent, TimerState>(eventScope) {
 
     override val initialState: TimerState
         get() = TimerState.Ready(DURATION_IN_MILLIS)

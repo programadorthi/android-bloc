@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import br.com.programadorthi.bloc.Bloc
+import br.com.programadorthi.androidbloc.AndroidBloc
 import br.com.programadorthi.timer.R
 import br.com.programadorthi.timer.bloc.TimerEvent
 import br.com.programadorthi.timer.bloc.TimerState
@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit
 
 class TimerActivity : AppCompatActivity() {
 
-    private val timerBloc: Bloc<TimerEvent, TimerState> by viewModel(named(TIMER_BLOC))
+    private val timerBloc: AndroidBloc<TimerEvent, TimerState> by viewModel(named(TIMER_BLOC))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

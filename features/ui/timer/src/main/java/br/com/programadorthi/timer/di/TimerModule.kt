@@ -1,6 +1,6 @@
 package br.com.programadorthi.timer.di
 
-import br.com.programadorthi.bloc.Bloc
+import br.com.programadorthi.androidbloc.AndroidBloc
 import br.com.programadorthi.timer.bloc.TimerBloc
 import br.com.programadorthi.timer.bloc.TimerEvent
 import br.com.programadorthi.timer.bloc.TimerState
@@ -12,6 +12,5 @@ const val TIMER_BLOC = "TIMER_BLOC"
 
 val timerModule = module {
 
-    viewModel<Bloc<TimerEvent, TimerState>>(named(TIMER_BLOC)) { TimerBloc(get()) }
-
+    viewModel<AndroidBloc<TimerEvent, TimerState>>(named(TIMER_BLOC)) { TimerBloc(get()) }
 }

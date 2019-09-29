@@ -13,7 +13,7 @@ object ProjectModules {
         const val Counter = ":features:ui:counter"
         const val InfiniteList = ":infinitelist"
         const val Login = ":features:ui:login"
-        const val Timer = ":timer"
+        const val Timer = ":features:ui:timer"
         const val Weather = ":weather"
 
         object Domain {

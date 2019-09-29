@@ -3,6 +3,7 @@ package br.com.programadorthi.counter.presentation
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import android.os.Bundle
+import br.com.programadorthi.androidbloc.AndroidBloc
 import br.com.programadorthi.bloc.Bloc
 import br.com.programadorthi.counter.R
 import br.com.programadorthi.counter.bloc.CounterEvent
@@ -17,7 +18,7 @@ import org.koin.core.qualifier.named
 
 class CounterActivity : AppCompatActivity() {
 
-    private val counterBloc: Bloc<CounterEvent, Int> by viewModel(named(COUNTER_BLOC))
+    private val counterBloc: AndroidBloc<CounterEvent, Int> by viewModel(named(COUNTER_BLOC))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

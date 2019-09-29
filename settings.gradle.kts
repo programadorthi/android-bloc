@@ -9,6 +9,7 @@ include(
     ProjectModules.Feature.Login,
     ProjectModules.Feature.Timer,
     ProjectModules.Feature.Weather,
+    ProjectModules.Feature.Domain.Login,
     ProjectModules.Test.InstrumentationTestHelpers,
     ProjectModules.Test.UnitTestHelpers
 )

@@ -22,7 +22,6 @@ object PluginDependencies {
 
 object PluginIds {
     const val androidApplication = "com.android.application"
-    const val androidDynamicFeature = "com.android.dynamic-feature"
     const val androidLibrary = "com.android.library"
     const val kotlinJVM = "kotlin"
     const val kotlinxSerialization = "kotlinx-serialization"
@@ -31,6 +30,8 @@ object PluginIds {
     const val jacocoUnified = "com.vanniktech.android.junit.jacoco"
     const val sonarCloud = "org.sonarqube"
     const val detekt = "io.gitlab.arturbosch.detekt"
+    // Plugins below are used in .gradle files. Don't remove!!!!
+    const val androidDynamicFeature = "com.android.dynamic-feature"
     const val testLogger = "com.adarshr.test-logger"
     const val ktlint = "org.jlleitschuh.gradle.ktlint"
 }

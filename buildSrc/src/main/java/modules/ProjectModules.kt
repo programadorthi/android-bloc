@@ -12,12 +12,12 @@ object ProjectModules {
     object Feature {
         const val Counter = ":features:ui:counter"
         const val InfiniteList = ":infinitelist"
-        const val Login = ":login"
+        const val Login = ":features:ui:login"
         const val Timer = ":timer"
         const val Weather = ":weather"
 
         object Domain {
-            const val Counter = ":features:domain:counter-domain"
+            const val Login = ":features:domain:login-domain"
         }
     }
 

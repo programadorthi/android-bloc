@@ -74,6 +74,10 @@ android {
     }
 }
 
+ktlint {
+    android = true
+}
+
 testlogger {
     theme System.getProperty("os.name").toLowerCase().contains('windows') ? 'standard' : 'mocha'
 }

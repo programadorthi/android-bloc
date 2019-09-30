@@ -1,4 +1,4 @@
-package br.com.programadorthi.weather.data
+package br.com.programadorthi.weather
 
 sealed class WeatherApiError : Exception() {
     object CityNotFound : WeatherApiError()

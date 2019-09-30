@@ -10,6 +10,7 @@ include(
     ProjectModules.Feature.Timer,
     ProjectModules.Feature.Weather,
     ProjectModules.Feature.Data.InfiniteList,
+    ProjectModules.Feature.Data.Weather,
     ProjectModules.Feature.Domain.Login,
     ProjectModules.Test.InstrumentationTestHelpers,
     ProjectModules.Test.UnitTestHelpers

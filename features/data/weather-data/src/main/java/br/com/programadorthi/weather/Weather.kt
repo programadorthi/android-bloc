@@ -1,4 +1,4 @@
-package br.com.programadorthi.weather.data
+package br.com.programadorthi.weather
 
 import kotlinx.serialization.Decoder
 import kotlinx.serialization.Encoder
@@ -29,7 +29,8 @@ data class WeatherCity(
 
 @Serializable
 data class Weather(
-    @Serializable(with = WeatherConditionSerializer::class) @SerialName("weather_state_abbr") val condition: WeatherCondition,
+    @Serializable(with = WeatherConditionSerializer::class)
+    @SerialName("weather_state_abbr") val condition: WeatherCondition,
     @SerialName("weather_state_name") val formmattedCondition: String,
     @SerialName("min_temp") val minTemp: Double,
     @SerialName("the_temp") val temp: Double,
@@ -46,32 +47,32 @@ object WeatherConditionSerializer : KSerializer<WeatherCondition> {
 
     override fun deserialize(decoder: Decoder): WeatherCondition {
         return when (decoder.decodeString()) {
-            "sn" -> WeatherCondition.snow
-            "sl" -> WeatherCondition.sleet
-            "h" -> WeatherCondition.hail
-            "t" -> WeatherCondition.thunderstorm
-            "hr" -> WeatherCondition.heavyRain
-            "lr" -> WeatherCondition.lightRain
-            "s" -> WeatherCondition.showers
-            "hc" -> WeatherCondition.heavyCloud
-            "lc" -> WeatherCondition.lightCloud
-            "c" -> WeatherCondition.clear
-            else -> WeatherCondition.unknown
+            "sn" -> WeatherCondition.Snow
+            "sl" -> WeatherCondition.Sleet
+            "h" -> WeatherCondition.Hail
+            "t" -> WeatherCondition.Thunderstorm
+            "hr" -> WeatherCondition.HeavyRain
+            "lr" -> WeatherCondition.LightRain
+            "s" -> WeatherCondition.Showers
+            "hc" -> WeatherCondition.HeavyCloud
+            "lc" -> WeatherCondition.LightCloud
+            "c" -> WeatherCondition.Clear
+            else -> WeatherCondition.Unknown
         }
     }
 
     override fun serialize(encoder: Encoder, obj: WeatherCondition) {
         val value = when (obj) {
-            WeatherCondition.snow -> "sn"
-            WeatherCondition.sleet -> "sl"
-            WeatherCondition.hail -> "h"
-            WeatherCondition.thunderstorm -> "t"
-            WeatherCondition.heavyRain -> "hr"
-            WeatherCondition.lightRain -> "lr"
-            WeatherCondition.showers -> "s"
-            WeatherCondition.heavyCloud -> "hc"
-            WeatherCondition.lightCloud -> "lc"
-            WeatherCondition.clear -> "c"
+            WeatherCondition.Snow -> "sn"
+            WeatherCondition.Sleet -> "sl"
+            WeatherCondition.Hail -> "h"
+            WeatherCondition.Thunderstorm -> "t"
+            WeatherCondition.HeavyRain -> "hr"
+            WeatherCondition.LightRain -> "lr"
+            WeatherCondition.Showers -> "s"
+            WeatherCondition.HeavyCloud -> "hc"
+            WeatherCondition.LightCloud -> "lc"
+            WeatherCondition.Clear -> "c"
             else -> ""
         }
         encoder.encodeString(value)

@@ -1,4 +1,4 @@
-package br.com.programadorthi.weather.data
+package br.com.programadorthi.weather
 
 import retrofit2.http.GET
 import retrofit2.http.Path

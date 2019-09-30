@@ -1,4 +1,4 @@
-package br.com.programadorthi.weather.data
+package br.com.programadorthi.weather
 
 class WeatherRepository(
     private val weatherService: WeatherService

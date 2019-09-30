@@ -11,14 +11,14 @@ apply(from = module.script())
 
 plugins {
     id(PluginIds.androidLibrary)
-    id(PluginIds.kotlinxSerialization)
 }
 
 dependencies {
     implementation(project(ProjectModules.Arch.Bloc))
+    implementation(project(ProjectModules.Arch.AndroidBloc))
+    implementation(project(ProjectModules.Feature.Data.Weather))
 
     implementation(Libraries.kotlinStdlib)
-    implementation(Libraries.kotlinSerialization)
     implementation(Libraries.coroutinesCore)
 
     implementation(Libraries.appCompatX)
@@ -30,7 +30,6 @@ dependencies {
     implementation(Libraries.koin)
 
     implementation(Libraries.retrofit)
-    implementation(Libraries.retrofitKotlinSerialization)
 
     implementation(Libraries.logger)
 

@@ -13,23 +13,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.PreferenceManager
-import br.com.programadorthi.bloc.Bloc
+import br.com.programadorthi.androidbloc.AndroidBloc
 import br.com.programadorthi.weather.R
 import br.com.programadorthi.weather.bloc.WeatherEvent
 import br.com.programadorthi.weather.bloc.WeatherState
-import br.com.programadorthi.weather.data.WeatherApiError
-import br.com.programadorthi.weather.data.WeatherCondition
+import br.com.programadorthi.weather.WeatherApiError
 import br.com.programadorthi.weather.di.WEATHER_BLOC
-import kotlinx.android.synthetic.main.activity_weather.cityTextView
-import kotlinx.android.synthetic.main.activity_weather.currentTempTextView
-import kotlinx.android.synthetic.main.activity_weather.formattedConditionTextView
-import kotlinx.android.synthetic.main.activity_weather.imageView
-import kotlinx.android.synthetic.main.activity_weather.maxTextView
-import kotlinx.android.synthetic.main.activity_weather.minTextView
-import kotlinx.android.synthetic.main.activity_weather.progressBar
-import kotlinx.android.synthetic.main.activity_weather.searchButton
-import kotlinx.android.synthetic.main.activity_weather.searchEditText
-import kotlinx.android.synthetic.main.activity_weather.updatedTextView
+import kotlinx.android.synthetic.main.activity_weather.*
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -39,7 +29,8 @@ import kotlin.math.roundToInt
 
 class WeatherActivity : AppCompatActivity() {
 
-    private val weatherBloc: Bloc<WeatherEvent, WeatherState> by viewModel(named(WEATHER_BLOC))
+    private val weatherBloc: AndroidBloc<WeatherEvent, WeatherState>
+            by viewModel(named(WEATHER_BLOC))
 
     private val dateFormat = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT)
 
@@ -112,16 +103,20 @@ class WeatherActivity : AppCompatActivity() {
         searchButton.setOnClickListener {
             hideKeyboard()
             val city = searchEditText.text.trim().toString()
-            weatherBloc.dispatch(WeatherEvent.FetchWeathe(city = city))
+            weatherBloc.dispatch(WeatherEvent.FetchWeather(city = city))
         }
     }
 
-    private fun mapWeatherCondition(condition: WeatherCondition) {
+    private fun mapWeatherCondition(condition: br.com.programadorthi.weather.WeatherCondition) {
         val weatherCondition = when (condition) {
-            WeatherCondition.hail, WeatherCondition.snow, WeatherCondition.sleet -> R.drawable.ic_snowy
-            WeatherCondition.heavyRain, WeatherCondition.lightRain, WeatherCondition.showers -> R.drawable.ic_rainy
-            WeatherCondition.heavyCloud -> R.drawable.ic_cloudy
-            WeatherCondition.thunderstorm -> R.drawable.ic_storm
+            br.com.programadorthi.weather.WeatherCondition.Hail,
+            br.com.programadorthi.weather.WeatherCondition.Snow,
+            br.com.programadorthi.weather.WeatherCondition.Sleet -> R.drawable.ic_snowy
+            br.com.programadorthi.weather.WeatherCondition.HeavyRain,
+            br.com.programadorthi.weather.WeatherCondition.LightRain,
+            br.com.programadorthi.weather.WeatherCondition.Showers -> R.drawable.ic_rainy
+            br.com.programadorthi.weather.WeatherCondition.HeavyCloud -> R.drawable.ic_cloudy
+            br.com.programadorthi.weather.WeatherCondition.Thunderstorm -> R.drawable.ic_storm
             else -> R.drawable.ic_sun
         }
         imageView.setImageDrawable(ContextCompat.getDrawable(this, weatherCondition))

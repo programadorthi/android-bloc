@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import android.os.Bundle
 import br.com.programadorthi.androidbloc.AndroidBloc
-import br.com.programadorthi.bloc.Bloc
 import br.com.programadorthi.counter.R
 import br.com.programadorthi.counter.bloc.CounterEvent
 import br.com.programadorthi.counter.di.COUNTER_BLOC

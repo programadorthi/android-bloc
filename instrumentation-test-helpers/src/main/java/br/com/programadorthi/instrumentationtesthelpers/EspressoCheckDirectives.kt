@@ -10,7 +10,6 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Matchers.not
 
-
 fun onViewWithId(@IdRes resId: Int): ViewInteraction = onView(withId(resId))
 
 fun onViewWithText(text: String): ViewInteraction = onView(withText(text))

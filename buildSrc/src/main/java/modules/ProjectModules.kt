@@ -5,24 +5,28 @@ object ProjectModules {
     const val App = ":app"
 
     object Arch {
-        const val Bloc = ":library:bloc"
-        const val AndroidBloc = ":library:androidbloc"
+        private const val ArchPrefix = ":arch:"
+        const val Bloc = "${ArchPrefix}bloc"
+        const val AndroidBloc = "${ArchPrefix}androidbloc"
     }
 
     object Feature {
-        const val Counter = ":features:ui:counter"
-        const val InfiniteList = ":features:ui:infinitelist"
-        const val Login = ":features:ui:login"
-        const val Timer = ":features:ui:timer"
-        const val Weather = ":features:ui:weather"
+        private const val FeaturePrefix = ":features:ui:"
+        const val Counter = "${FeaturePrefix}counter"
+        const val InfiniteList = "${FeaturePrefix}infinitelist"
+        const val Login = "${FeaturePrefix}login"
+        const val Timer = "${FeaturePrefix}timer"
+        const val Weather = "${FeaturePrefix}weather"
 
         object Data {
-            const val InfiniteList = ":features:data:infinitelist-data"
-            const val Weather = ":features:data:weather-data"
+            private const val DataPrefix = ":features:data:"
+            const val InfiniteList = "${DataPrefix}infinitelist-data"
+            const val Weather = "${DataPrefix}weather-data"
         }
 
         object Domain {
-            const val Login = ":features:domain:login-domain"
+            private const val DomainPrefix = ":features:domain:"
+            const val Login = "${DomainPrefix}login-domain"
         }
     }
 

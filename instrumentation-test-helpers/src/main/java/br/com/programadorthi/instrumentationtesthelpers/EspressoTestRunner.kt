@@ -13,5 +13,4 @@ class EspressoTestRunner : AndroidJUnitRunner() {
     ): Application {
         return super.newApplication(cl, FakeApplication::class.java.name, context)
     }
-
 }

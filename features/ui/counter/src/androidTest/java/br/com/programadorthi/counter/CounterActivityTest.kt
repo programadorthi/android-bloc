@@ -64,7 +64,11 @@ class CounterActivityTest {
 
     @Test
     fun shouldShowMinusOneCounterTextWhenDispatcherDecrement() {
-        every { bloc.dispatch(CounterEvent.Decrement) } coAnswers { channel.send(channel.value - 1) }
+        every {
+            bloc.dispatch(CounterEvent.Decrement)
+        } coAnswers {
+            channel.send(channel.value - 1)
+        }
 
         bloc.dispatch(CounterEvent.Decrement)
 
@@ -73,7 +77,11 @@ class CounterActivityTest {
 
     @Test
     fun shouldShowOneCounterTextWhenDispatcherIncrement() {
-        every { bloc.dispatch(CounterEvent.Increment) } coAnswers { channel.send(channel.value + 1) }
+        every {
+            bloc.dispatch(CounterEvent.Increment)
+        } coAnswers {
+            channel.send(channel.value + 1)
+        }
 
         bloc.dispatch(CounterEvent.Increment)
 

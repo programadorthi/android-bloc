@@ -1,13 +1,13 @@
 package br.com.programadorthi.instrumentationtesthelpers
 
-import br.com.programadorthi.bloc.Bloc
+import br.com.programadorthi.bloc.UnawareBloc
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.FlowCollector
 
 class FakeBloc<Event, State>(
     eventScope: CoroutineScope,
     private val initialFakeState: State
-) : Bloc<Event, State>(eventScope) {
+) : UnawareBloc<Event, State>(eventScope) {
 
     override val initialState: State
         get() = initialFakeState

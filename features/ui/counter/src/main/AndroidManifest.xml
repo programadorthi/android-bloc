@@ -3,7 +3,9 @@
     package="br.com.programadorthi.counter">
 
     <application>
-        <activity android:name=".presentation.CounterActivity" />
+        <activity
+            android:name=".presentation.CounterActivity"
+            android:theme="@style/Theme.AppCompat" />
     </application>
 
 </manifest>

@@ -12,6 +12,7 @@ plugins {
 }
 
 dependencies {
+    implementation(project(ProjectModules.Arch.Bloc))
     implementation(project(ProjectModules.Arch.AndroidBloc))
 
     implementation(Libraries.kotlinStdlib)

@@ -38,7 +38,6 @@ class CounterActivityTest {
 
     @Before
     fun setUp() {
-        println(">>>>>>>>>>>>> setUp")
         channel = ConflatedBroadcastChannel(0)
 
         coEvery { bloc.state } returns channel.asFlow()
@@ -54,7 +53,6 @@ class CounterActivityTest {
     fun cleanUp() {
         channel.close()
         stopKoin()
-        println(">>>>>>>>>>>>> cleanUp")
     }
 
     @Test

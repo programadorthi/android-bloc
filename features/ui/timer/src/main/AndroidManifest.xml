@@ -3,7 +3,9 @@
     package="br.com.programadorthi.timer">
 
     <application>
-        <activity android:name=".presentation.TimerActivity"></activity>
+        <activity
+            android:name=".presentation.TimerActivity"
+            android:theme="@style/Theme.AppCompat" />
     </application>
 
 </manifest>

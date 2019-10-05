@@ -39,5 +39,9 @@ dependencies {
 
     instrumentationTest {
         forEachDependency { androidTestImplementation(it) }
+
+        forEachProjectDependency(this@dependencies) {
+            androidTestImplementation(it)
+        }
     }
 }

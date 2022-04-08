@@ -1,3 +1,5 @@
+# [DEPRECATED] in favor of [Kotlin State Manager](https://github.com/programadorthi/kotlin-state-manager)
+
 # android-bloc
 A BLoC implementation using Kotlin Coroutines
 
